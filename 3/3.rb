@@ -1,5 +1,8 @@
 
 def calc_distance(num)
+    # This calculates the result without needing to run the whole grid, which I wanted to avoid as that would
+    # get expensive for large grids. It was silly though as part 2 of the test required the whole grid anyway
+    #
     # Grid edge length goes 3, 5, 7
     # Total edges goes 8, 16, 24, 32
     # First outer = 2, 10, 26, 50
@@ -57,6 +60,8 @@ def test()
 end
 
 class Grid
+    # This class manages computing the entire grid for part 2 of the challenge
+    
     attr_reader :num
     def initialize()
         @grid = [[1]]
