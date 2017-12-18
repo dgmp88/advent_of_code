@@ -46,16 +46,6 @@ class Numbers:
     def result(self):
         return self.list.list[0] * self.list.list[1]
 
-
-t = Numbers(list(range(5)), [3, 4, 1, 5])
-t.process_lengths()
-print(t)
-assert t.result() == 12
-
-d = Numbers(list(range(256)), [197,97,204,108,1,29,5,71,0,50,2,255,248,78,254,63])
-d.process_lengths()
-print('Result 1', d.result())
-
 class String:
     def __init__(self, data, lengths):
         self.list = CircularList(data)
@@ -102,10 +92,20 @@ class String:
     def compute_hex(self):
         self.hex = ''.join(['%0.2x' % val for val in self.dense_hash])
 
-for val in ['', 'AoC 2017', '1,2,3', '1,2,4']:
-    t = String(list(range(256)), val)
+if __name__ == '__main__':
+    t = Numbers(list(range(5)), [3, 4, 1, 5])
+    t.process_lengths()
+    print(t)
+    assert t.result() == 12
+
+    d = Numbers(list(range(256)), [197,97,204,108,1,29,5,71,0,50,2,255,248,78,254,63])
+    d.process_lengths()
+    print('Result 1', d.result())
+    
+    for val in ['', 'AoC 2017', '1,2,3', '1,2,4']:
+        t = String(list(range(256)), val)
+        print(t.hex)
+
+
+    t = String(list(range(256)), '197,97,204,108,1,29,5,71,0,50,2,255,248,78,254,63')
     print(t.hex)
-
-
-t = String(list(range(256)), '197,97,204,108,1,29,5,71,0,50,2,255,248,78,254,63')
-print(t.hex)
